@@ -1,0 +1,119 @@
+<br />
+<div class="container">
+  <h3 class="text-center">TODO FORM</h3>
+  <div class="form-group row">
+    <div class="col-sm-6">
+      <div class="form-group has-success">
+        <label for="inputfirstName" class="form-control-label">Task Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputFirstName"
+          [(ngModel)]="objUser.name"
+          placeholder="Task Name"
+          required
+        />
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group has-success">
+        <label for="inputlastName" class="form-control-label">Status</label>
+        <select
+              class="form-control"
+              id="gender"
+              [(ngModel)]="objUser.status"
+              placeholder="Status"
+            >
+              <option value="" disabled selected hidden>
+                Select status
+              </option>
+              <option value="pending">Pending</option>
+              <option value="inprogress">inprogress</option>
+              <option value="completed">completed</option>
+            </select>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group has-success">
+        <label for="inputaddress" class="form-control-label">Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="inputAddress"
+          [(ngModel)]="objUser.created_date"
+          required
+        />
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group has-success">
+        <label for="inputaddress" class="form-control-label">Assignee</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputAddress"
+          [(ngModel)]="objUser.User"
+          placeholder="Assignee"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1" style="float: right">
+    <div class="form-group has-success">
+      <button
+        type="button"
+        class="btn btn-primary btn-block"
+        (click)="onSave()"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>
+<br />
+<br>
+<br>
+<div class="container">
+  <h3 class="text-center">TODO LIST</h3>
+  <br>
+  <div class="search-hero">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+  </div>
+  <div class="table-responsive panel panel-success">
+    <table class="table table-striped table-bordered" cellspacing="0">
+      <thead>
+        <tr>
+          <th class="text-center">#</th>
+          <th class="text-center">Task Name</th>
+          <th class="text-center">Status</th>
+          <th class="text-center">Date</th>
+          <th class="text-center">Assignee</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let user of UserList | filter:searchText;let i = index;">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.status }}</td>
+          <td>{{ user.created_date | date  }}</td>
+          <td>{{ user.User }}</td>
+          <td>
+            <button
+              style="margin: 0 8px"
+              type="button"
+              class="btn btn-primary"
+              (click)="edit(user)"
+            >
+              Update
+            </button>
+            <button type="button" class="btn btn-danger" (click)="delete(user)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

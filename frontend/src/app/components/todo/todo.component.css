@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:wght@100;300;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+
+.todo-container {
+  font-family: "Raleway", sans-serif !important;
+  margin: 50px 200px 0px 200px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0 !important;
+}
+
+::ng-deep .mat-form-field-infix {
+  border-top: 0;
+}
+
+.add-details-field {
+  width: 100%;
+}
+
+.add-details-field input {
+  font-family: "PT Sans", sans-serif !important;
+  padding-top: 4px;
+}
+
+::ng-deep .todo-container .mat-tab-label {
+  font-family: "Raleway", sans-serif !important;
+  font-weight: 700;
+  color: black;
+  width: 50%;
+}
+
+.todo-add-content {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-details {
+  flex: 1;
+}
+
+.add-content-btn {
+  margin-left: 15px;
+  float: right;
+}
+
+.task-checkbox {
+  align-self: center;
+  font-family: "PT Sans", sans-serif !important;
+}
+
+::ng-deep .todo-container .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  border-radius: 50px 50px 0px 0px;
+  height: 4px;
+  min-width: 160px;
+}
+
+::ng-deep .mat-checkbox-checked {
+  text-decoration: line-through;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+  background-color: #673ab6 !important;
+}
+
+.tasks-section {
+  margin-top: 16px;
+}
+.list-tasks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-btn {
+  transform: scale(0.8);
+  color: grey;
+}
+
+.delete-all-btn {
+  background-color: #f18989;
+  color: #e0e0e0;
+  font-family: "Raleway", sans-serif !important;
+  align-content: flex-end;
+}
+
+.delete-all-btn-logo {
+  transform: scale(0.6);
+}

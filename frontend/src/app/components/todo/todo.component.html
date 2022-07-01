@@ -1,0 +1,75 @@
+<div class="todo-container">
+  <div class="todo-nav-bar">
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab *ngFor="let content of data" [label]="content.item">
+        <div>
+          <form
+            [formGroup]="form"
+            autocomplete="off"
+            class="todo-add-content-form"
+            (ngSubmit)="submit()"
+            *ngIf="content.item !== 'Completed'"
+          >
+            <div class="todo-add-content">
+              <div class="add-details">
+                <mat-form-field class="add-details-field" appearance="outline">
+                  <input
+                    matInput
+                    placeholder="add details"
+                    formControlName="addDetails"
+                  />
+                  <!-- <mat-error *ngIf="form.hasError('required', 'addDetails')">
+                    Task cannot be empty
+                  </mat-error> -->
+                </mat-form-field>
+              </div>
+              <div class="add-content-btn">
+                <button mat-raised-button style="height:41px;" color="primary">
+                  Add
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="tasks-container">
+          <div class="tasks-section" *ngFor="let task of tasks; count as i">
+            <ul
+              class="list-tasks"
+              *ngIf="
+                (content.item == 'Completed' && task.completed) ||
+                (content.item == 'Active' && !task.completed) ||
+                content.item == 'All'
+              "
+            >
+              <mat-checkbox
+                [checked]="task.completed"
+                class="task-checkbox"
+                (click)="logCheckBoxClick(task)"
+              >
+                {{ task.title }}</mat-checkbox
+              >
+              <button
+                mat-icon-button
+                *ngIf="content.item == 'Completed'"
+                (click)="deleteTask(task)"
+              >
+                <mat-icon>delete </mat-icon>
+              </button>
+            </ul>
+          </div>
+          <div align="right">
+            <button
+              mat-button
+              *ngIf="showDeleteBtn(content.item)"
+              class="delete-all-btn"
+              (click)="deleteAllCompleted()"
+            >
+              <i class="material-icons delete-all-btn-logo">delete_outline</i>
+              delete all
+            </button>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
